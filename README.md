@@ -42,23 +42,19 @@
 
 <br/>
 
-## ✅ Commit 규칙
-
-- **형식**  
-[플랫폼] 문제이름 / 난이도 / 걸린시간
-
-- **설명(description)**: 문제 주소 (선택)
-- **예시**
+## ✅ Commit 방법
+- 리트코드 허브 확장프로그램을 이용합니다.
+- 각자 개인폴더에 커밋해야 되기 때문에 [leetCode 연동폴더 설정](https://youngju-js.tistory.com/48) 이 방법을 따라해주세요!
+- 확장프로그램을 눌러 Customize Commit Message 에서 커밋메시지를 커스텀 합니다.
 ```bash
-git commit -m "[BOJ] Hello World / 브론즈5 / 1분" -m "https://www.acmicpc.net/problem/2557"
+💡 [LTC] {problemTopic}: {problemName}
+
+- Time: {time}
+- Space: {space}
+- Difficulty: {difficulty}
+- Date: {date}
 ```
-- 플랫폼 태그
-  - [PGS] : 프로그래머스
-  - [LTC] : 리트코드
-  - [CFS] : 코드포스
-  - [SEA] : 삼성 SW Expert Academy
-  - [BOJ] : 백준
-  - [ETC] : 그 외
+- 그리고 문제 풀고 submit 누르면 자동으로 커밋이 완료됩니다. (초록색 체크가 활성화되면 성공!)
 
 <br/>
 
