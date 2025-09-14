@@ -14,11 +14,14 @@
 6. 스터디 **수습기간 3개월** → 이후 계속 참여 여부 선택 가능
 7. **3아웃제**: 3회 미참여 시 자동 퇴출
 
----
+<br/>
+
 ## 🚀 문제
 문제는 일단 [LeetCode Top Interview Questions Easy](https://leetcode.com/explore/interview/card/top-interview-questions-easy/) 순서대로 진행합니다.
 > 풀이는 당연히 자바스크립트로 진행합니다. ~~파이썬 갈!~~
----
+
+<br/>
+
 ## ✅ 참여 방법
 
 1. 이 저장소를 **fork** 한다.
@@ -30,6 +33,8 @@
    - 주말(토요일)에 merge 예정
 5. 다른 사람들의 PR을 보고 자유롭게 **코드리뷰**를 남긴다.
 6. ⚠️ 기존 폴더 삭제 금지! **개인 폴더 내부만 수정**
+
+<br/>
 
 ## ✅ Commit 규칙
 
@@ -48,6 +53,8 @@ git commit -m "[BOJ] Hello World / 브론즈5 / 1분" -m "https://www.acmicpc.ne
   - [SEA] : 삼성 SW Expert Academy
   - [BOJ] : 백준
   - [ETC] : 그 외
+
+<br/>
 
 ## ✅ PR 규칙
 
