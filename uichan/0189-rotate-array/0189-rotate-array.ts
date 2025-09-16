@@ -49,5 +49,4 @@ function rotate(nums: number[], k: number): void {
 /** 엣지케이스 처리
 1. k가 0이거나, length가 1보다 작을 때 -> return
 2. 회전해야하니까, length < k일 경우, k = k%length
-
  */
