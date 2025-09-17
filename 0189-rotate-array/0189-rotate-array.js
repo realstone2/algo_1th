@@ -39,3 +39,7 @@ var rotate = function(nums, k) {
     reverse(0, k - 1);
     reverse(k, n - 1);
 };
+
+//전체를 뒤집어버리기
+//k번째 이전까지 뒤집어서 순서맞추기
+//k번째 이후 뒤집어서 순서맞추기
