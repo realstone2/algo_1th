@@ -4,10 +4,14 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var rotate = function(nums, k) {
-    for(let i=0;i<k;i++){
-        const lastElement = nums.pop();
-        nums.splice(0, 0, lastElement);
-    }
-    return nums;
+    const n = nums.length;
+    k = k % n;
 
+    if (k === 0) {
+        return; 
+    }
+
+    const removedPart = nums.splice(n - k);
+
+    nums.unshift(...removedPart);
 };
