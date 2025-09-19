@@ -13,5 +13,5 @@ var singleNumber = function(nums) {
         }
     }
 
-    return [...map].find(([k, v]) => v === 0)?.[0];
+    return [...map.entries()].find(([_, v]) => v === 0)?.[0];
 };
