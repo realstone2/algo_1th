@@ -18,6 +18,7 @@ function rotate(nums: number[], k: number): void {
 
 /** 조건
  그냥 배열 이동시키기
+ 회전하기였음 배열 이동시키기로 생각하고 시간 오지게 날려먹음
 */
 
 /** 시간 복잡도
