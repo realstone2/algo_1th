@@ -6,21 +6,22 @@
  * @return {number[]}
  */
 
-const intersectRecursive = (num1, num2, i, j, result) => {
-    if (i > nums1.length || j > num2.length) {
+const intersectRecursive = (nums1, nums2, i, j, result) => {
+    if (i >= nums1.length || j >= nums2.length) {
         return result;
     }
 
-    if (num1[i] < num2[j]) {
-        return intersectRecursive(num, num2, ++i, j, result);
+    if (nums1[i] < nums2[j]) {
+        return intersectRecursive(nums1, nums2, ++i, j, result);
     }
 
-    if (num1[i] > num2[j]) {
-        return intersectRecursive(num, num2, i, ++j, result);
+    if (nums1[i] > nums2[j]) {
+        return intersectRecursive(nums1, nums2, i, ++j, result);
     }
 
-    result.push(num1[i]);
-    return intersectRecursive(num1, num2, ++i, ++j, result);
+    result.push(nums1[i]);
+    return intersectRecursive(nums1, nums2, ++i, ++j, result);
+
 }
 var intersect = function(nums1, nums2) {
     nums1.sort((a, b) => a - b);
