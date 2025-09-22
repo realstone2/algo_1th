@@ -19,11 +19,7 @@ function intersect(nums1: number[], nums2: number[]): number[] {
 
             // 작은 value = 반복횟수
             const 반복횟수 = Math.min(맵1.get(num), 맵2.get(num))
-
-            // 작은 value만큼 key 값을 배열에 추가
-            for (let i = 0; i < 반복횟수; i++){
-                답.push(num)
-            }
+            답.push(...Array(반복횟수).fill(num))
         }
     }
 
