@@ -4,7 +4,7 @@
  */
 const plusOne = function(digits) {
     let plus = 1;
-    for (i = digits.length - 1; i >= 0; i--) {
+    for (let i = digits.length - 1; i >= 0; i--) {
        let sum = digits[i] + plus;
        
        sum % 10 > 0 ? digits[i] = sum : digits[i] = sum % 10;
