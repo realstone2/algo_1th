@@ -30,7 +30,7 @@ var moveZeroes = function(nums) {
         loopIndex --
     
         if(loop){
-            i --
+            i
         }else{
             i ++ 
         }
