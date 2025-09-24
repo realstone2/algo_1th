@@ -18,7 +18,6 @@ var moveZeroes = function(nums) {
         search++
     }
 
-    console.log(nums)
     // 나머지는 0으로 채워넣기
     for (let i = location; i < nums.length; i++) {
         nums[i] = 0
