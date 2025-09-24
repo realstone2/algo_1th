@@ -29,9 +29,7 @@ var moveZeroes = function(nums) {
         }
         loopIndex --
     
-        if(loop){
-            i
-        }else{
+        if(!loop){
             i ++ 
         }
     }
