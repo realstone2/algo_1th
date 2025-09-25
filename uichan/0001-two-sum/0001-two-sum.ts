@@ -33,4 +33,5 @@ function twoSum(nums: number[], target: number): number[] {
 /** 클로드한테 물어봄
     1. map에 지금까지 본 숫자들 모두 기록
     2. 지금까지 본 숫자들 중 지금의 값과 합쳤을때 target과 일치한다면 return
+    -> 검색을 빠르게 하고싶어? 그럼 미리 기록해놔!!
  */
