@@ -14,7 +14,6 @@ var twoSum = function(nums, target) {
     let secondIdx = 1;
     while (firstIdx < nums.length) {
         if (nums[firstIdx] + nums[secondIdx] === target) {
-            console.log(firstIdx, nums[firstIdx], secondIdx, nums[secondIdx])
             return [firstIdx, secondIdx]
         } else {
             secondIdx++
