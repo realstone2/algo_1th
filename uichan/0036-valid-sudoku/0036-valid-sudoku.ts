@@ -1,12 +1,12 @@
 function isValidSudoku(board: string[][]): boolean {
     
     function checker(array: string[]): boolean {
-        const 맵 = new Map()
+        const 셋 = new Set<string>()
 
         for (let i = 0; i < 9; i++){
-            if (array[i] !== "." && 맵.has(array[i])) return false
+            if (array[i] !== "." && 셋.has(array[i])) return false
 
-            맵.set(array[i], null)
+            셋.add(array[i])
         }
         
         return true
