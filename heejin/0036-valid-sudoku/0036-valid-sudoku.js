@@ -2,33 +2,46 @@
  * @param {character[][]} board
  * @return {boolean}
  */
- 
- // 세 개의 배열을 사용하여 행, 열, 3x3 박스 내의 숫자 중복을 확인
 const isValidSudoku = (board) => {
-    const rows = Array.from({ length: 9 }, () => Array(10).fill(false));
-    const cols = Array.from({ length: 9 }, () => Array(10).fill(false));
-    const boxes = Array.from({ length: 9 }, () => Array(10).fill(false));
-
-    for (let i = 0; i < 9; i++) {
-        for (let j = 0; j < 9; j++) {
-            const char = board[i][j];
-
-            if (char === '.') {
-                continue;
-            }
-
-            const num = parseInt(char);
-            const boxIndex = Math.floor(i / 3) * 3 + Math.floor(j / 3);
-
-            if (rows[i][num] || cols[j][num] || boxes[boxIndex][num]) {
-                return false;
-            }
-
-            rows[i][num] = true;
-            cols[j][num] = true;
-            boxes[boxIndex][num] = true;
+  // 행 검사
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      for (let k = j + 1; k < 9; k++) {
+        if (board[i][j] !== '.' && board[i][j] === board[i][k]) {
+          return false;
         }
+      }
     }
+  }
 
-    return true;
+  // 열 검사
+  for (let j = 0; j < 9; j++) {
+    for (let i = 0; i < 9; i++) {
+      for (let k = i + 1; k < 9; k++) {
+        if (board[i][j] !== '.' && board[i][j] === board[k][j]) {
+          return false;
+        }
+      }
+    }
+  }
+
+  // 3x3 박스 검사
+  for (let boxRow = 0; boxRow < 3; boxRow++) {
+    for (let boxCol = 0; boxCol < 3; boxCol++) {
+      const seen = [];
+      for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+          const r = boxRow * 3 + i;
+          const c = boxCol * 3 + j;
+          const val = board[r][c];
+          if (val !== '.') {
+            if (seen.includes(val)) return false;
+            seen.push(val);
+          }
+        }
+      }
+    }
+  }
+
+  return true;
 };
