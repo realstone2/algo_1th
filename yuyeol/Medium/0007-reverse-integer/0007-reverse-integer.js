@@ -14,7 +14,7 @@ var reverse = function(x) {
         const digit = Number(xString[i]);
         const reversedDigit = digit * Math.pow(10, i);
         res += reversedDigit;
+        if(res > MAX) return 0; 
     }
-    if(res > MAX) return 0;
     return isMinus ? -res : res
 };
