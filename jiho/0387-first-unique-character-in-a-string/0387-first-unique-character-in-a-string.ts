@@ -4,8 +4,8 @@ function firstUniqChar(s: string): number {
 
     for(const char of s) map.set(char, (map.get(char) ?? 0) + 1)
 
-    for (const [i, char] of s.split('').entries()) {
-        if(map.get(char) === TARGET_COUNT) return i
+    for (let i = 0; i < s.length; i ++) {
+        if(map.get(s[i]) === TARGET_COUNT) return i
     }
 
     return -1
