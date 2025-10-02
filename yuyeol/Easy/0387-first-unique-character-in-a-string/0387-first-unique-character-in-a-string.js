@@ -2,6 +2,8 @@
  * @param {string} s
  * @return {number}
  */
+
+/**
 var firstUniqChar = function(s) {
     // map에 key: 원소 값, value: 값의 갯수를 저장
     const stringMap = new Map();
@@ -17,4 +19,18 @@ var firstUniqChar = function(s) {
     }
     // value가 1인 key가 없으면 최종적으로 -1 리턴
     return -1;
+};
+*/
+
+// 더 모던하게 작성하기
+var firstUniqChar = function(s) {
+    const charCount = new Map();
+    
+    // 등장 횟수 저장
+    for(const char of s) {
+        charCount.set(char, (charCount.get(char) || 0) + 1);
+    }
+    
+    // 첫 번째 중복 없는 문자 찾기
+    return [...s].findIndex(char => charCount.get(char) === 1);
 };
