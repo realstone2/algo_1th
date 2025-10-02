@@ -8,7 +8,7 @@ var reverse = function(x) {
     const reverseNum = String(x).split('').reverse().join('');
     const result = isMinus ? -Number(reverseNum.split('-')[0]) : Number(reverseNum) 
     
-    const isInteger = -Math.pow(2, 32) <= result && result <= (Math.pow(2, 32) - 1); 
+    const isInteger = -Math.pow(2, 31) <= result && result <= (Math.pow(2, 31) - 1); 
     
     return isInteger ? result : 0;
  };
