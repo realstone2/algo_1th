@@ -6,8 +6,19 @@
 var isAnagram = function(s, t) {
     if(s.length !==t.length) return false;
 
-    const sortedS = s.split("").sort().join("");
-    const sortedT = t.split("").sort().join("");
+    const hashmap = {}
 
-    return sortedS===sortedT
+
+    for(let char of s){
+        hashmap[char] = (hashmap[char] || 0) + 1; 
+    }
+
+    for(let char of t){
+
+        if(!hashmap[char]){
+            return false;
+        }
+        hashmap[char]--
+    }
+    return true;
 };
