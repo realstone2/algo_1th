@@ -1,5 +1,5 @@
 function isAnagram(s: string, t: string): boolean {
-    if(s.length !== t.length) return false
+        if(s.length !== t.length) return false
 
     const map = new Map()
     for(const char of s) {
