@@ -44,7 +44,7 @@
 
 ## ✅ Commit 방법
 - 리트코드 허브 확장프로그램을 이용합니다.
-- 각자 개인폴더에 커밋해야 되기 때문에 [leetCode 연동폴더 설정](https://youngju-js.tistory.com/48) 이 방법을 따라해주세요!
+- 각자 개인폴더에 커밋해야 되기 때문에 [leetCode 연동폴더 설정](https://velog.io/@becooq81/LeetHub-%ED%8F%B4%EB%8D%94-%EB%A7%8C%EB%93%A4%EC%96%B4%EC%84%9C-%EC%97%B0%EB%8F%99%ED%95%98%EA%B8%B0) 이 방법을 따라해주세요!
 - 확장프로그램을 눌러 Customize Commit Message 에서 커밋메시지를 커스텀 합니다.
 ```bash
 💡 [LTC] {problemTopic}: {problemName}
