@@ -4,7 +4,6 @@
  */
 var plusOne = function(digits) {
 
-    const result = []
     let i = digits.length - 1;
     let up = false
     while(i >= 0){
