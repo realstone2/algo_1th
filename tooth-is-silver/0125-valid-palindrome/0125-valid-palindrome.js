@@ -3,20 +3,18 @@
  * @return {boolean}
  */
 var isPalindrome = function(s) {
-   const regex = /^[a-z0-9]+$/;
-   let str = ''
-   for (const word of s.toLowerCase()) {
-        if (regex.test(word)) str += word
-   }
-
-   if (str.length === 0) return true;
-
-    let i = 0;
-    const halfLength = Math.round(str.length / 2)
-    while(i < halfLength) {
-        console.log(str[i], str[str.length - i - 1])
-        if (str[i] !== str[str.length - i - 1]) return false
-        i++
+    const asciiRegex = /^[a-zA-Z0-9]+$/
+    s = [...s].filter(word => asciiRegex.test(word)).join('')
+    
+    let first = 0;
+    let second = s.length - 1;
+    while (first < second) {
+        const word1 = s[first].toUpperCase()
+        const word2 = s[second].toUpperCase()
+        
+        if (word1 !== word2) return false;
+        first++
+        second--
     }
-    return true
+    return true;
 };
