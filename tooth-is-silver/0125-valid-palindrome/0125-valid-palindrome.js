@@ -4,15 +4,12 @@
  */
 var isPalindrome = function(s) {
     const asciiRegex = /^[a-zA-Z0-9]+$/
-    s = [...s].filter(word => asciiRegex.test(word)).join('')
+    s = [...s.toLowerCase()].filter(word => asciiRegex.test(word)).join('')
     
     let first = 0;
     let second = s.length - 1;
     while (first < second) {
-        const word1 = s[first].toUpperCase()
-        const word2 = s[second].toUpperCase()
-        
-        if (word1 !== word2) return false;
+        if (s[first] !== s[second]) return false;
         first++
         second--
     }
