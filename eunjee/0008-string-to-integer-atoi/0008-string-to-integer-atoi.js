@@ -3,44 +3,36 @@
  * @return {number}
  */
 var myAtoi = function(s) {
-    let str = s;
-
-    let sign = 1;
-    let digit = '';
-
-    // leading whitespace
-    if (str[0] === ' ') {
-        let i = 1;
-        while (i < str.length) {
-            if (str[i] !== ' ') {
-                str = str.slice(i);
-                break;
-            }
-            i++;
-        }
-    }
-    
-    // leading sign
-    if (str[0] === '-' | str[0] === '+') {
-        sign = str[0] === '+' ? 1 : -1;
-        str = str.slice(1);
-    }
+    const INT_MIN = -(2 ** 31);
+    const INT_MAX = 2 ** 31 - 1;
 
     let i = 0;
-    while (isNumeric(str[i])) {
-        i++
+    let n = s.length;
+
+    // 1. Skip leading whitespaces
+    while (i < n && s[i] === ' ') {
+        i++;
     }
 
-
-    digit = str.slice(0, i);
-
-    if (!digit) {
-        return 0
+    // 2. Handle optional sign
+    let sign = 1;
+    if (s[i] === '+' || s[i] === '-') {
+        sign = s[i] === '-' ? -1 : 1;
+        i++;
     }
 
-    return Math.max(-(2 ** 31), Math.min(parseFloat(digit) * sign, 2 ** 31 - 1));
+    // 3. Parse digits
+    let num = 0;
+    while (i < n && s[i] >= '0' && s[i] <= '9') {
+        num = num * 10 + (s[i].charCodeAt(0) - '0'.charCodeAt(0));
+        i++;
+    }
+
+    // 4. Apply sign
+    num *= sign;
+
+    // 5. Clamp to 32-bit signed int range
+    if (num < INT_MIN) return INT_MIN;
+    if (num > INT_MAX) return INT_MAX;
+    return num;
 };
-
-function isNumeric(str) {
-    return !isNaN(str) && !isNaN(parseFloat(str));
-}
