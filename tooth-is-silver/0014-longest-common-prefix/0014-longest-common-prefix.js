@@ -4,7 +4,7 @@
  */
 var longestCommonPrefix = function(strs) {
     if (strs.length === 1) return strs[0]
-    
+
     let result = ''
     // flower, flow, flight를 돌면서 '', 'f', 'fl', 'flo', 'flow', 'flower'가 prefix로 있는지 확인
     let i = 0;
@@ -18,5 +18,6 @@ var longestCommonPrefix = function(strs) {
         i++
     }
 
-    return result
+    // 모두 같은 글자
+    return strs[0]
 };
