@@ -14,6 +14,8 @@ var longestCommonPrefix = function(strs) {
                 if(j === 0) return "";
                 // 마지막 인덱스 갱신
                 finalIndex = j;
+                // 마지막 인덱스 찾았으니 즉시 해당 포문 탈출
+                break;
             }
         }
 
