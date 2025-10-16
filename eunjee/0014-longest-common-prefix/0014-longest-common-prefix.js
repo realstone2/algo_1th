@@ -9,8 +9,6 @@ var longestCommonPrefix = function(strs) {
 
     let result = true;
 
-    console.log(shortest)
-
     while (end <= shortest && result) {
         end++;
         const prefix = strs[0].slice(0, end);
