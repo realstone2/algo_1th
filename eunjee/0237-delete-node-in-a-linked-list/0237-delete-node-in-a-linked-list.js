@@ -11,17 +11,15 @@
  */
 var deleteNode = function(node) {
     let currentNode = node;
-    let nextNode = node.next;
 
     while (true) {
-        currentNode.val = nextNode.val;
+        currentNode.val = currentNode.next.val;
         
-        if (nextNode.next === null) {
+        if (currentNode.next.next === null) {
             currentNode.next = null
             break;
         }
 
-        currentNode = nextNode;
-        nextNode = currentNode.next;
+        currentNode = currentNode.next;
     }
 };
