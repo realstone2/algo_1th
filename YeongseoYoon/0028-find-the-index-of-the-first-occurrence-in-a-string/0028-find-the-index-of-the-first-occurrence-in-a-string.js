@@ -4,5 +4,7 @@
  * @return {number}
  */
 var strStr = function(haystack, needle) {
-    return haystack.indexOf(needle)
+   if (needle === '') return 0;
+
+    return haystack.indexOf(needle);
 };
