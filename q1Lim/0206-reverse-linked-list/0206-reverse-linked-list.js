@@ -14,6 +14,8 @@ var reverseList = function(head) {
     // 확인한 val의 값을 배열에 넣는다
     // 배열을 reverse해서 순서대로 넣는 작업을 진행하자 
 
+    /*
+
     if (!head) return null
 
     let curr = head
@@ -25,9 +27,7 @@ var reverseList = function(head) {
     }
 
     valList = valList.reverse()
-
     const reversedHead = new ListNode(valList[0])
-
     let current = reversedHead
 
     for (let i = 1 ; i < valList.length; i++){
@@ -36,5 +36,19 @@ var reverseList = function(head) {
     }
 
     return reversedHead
+
+    */
+
+    let prev = null
+    let current = null
+
+    while (head){
+        current = head.next
+        head.next = prev
+        prev = head
+        head = current
+    }
+
+    return prev
 
 };
