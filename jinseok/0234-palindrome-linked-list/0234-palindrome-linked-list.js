@@ -10,10 +10,11 @@
  * @return {boolean}
  */
 var isPalindrome = function(head) {
-    const reverseHead = new ListNode();
+    const list = [];
     
     while(head){
-        const newNode = newListNode();
+        list.push(head.val);
+
         head = head.next;
     }
 
