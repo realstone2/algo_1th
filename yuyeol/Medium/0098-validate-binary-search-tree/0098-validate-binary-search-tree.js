@@ -27,15 +27,18 @@
 // };
 
 function isValid(node, min, max) {
+    // 더이상 순회할 루트가 없으면 BST 조건 검증이 필요없으므로 통과시킴
     if(!node) return true;
     
     if(node.val <= min || node.val >= max) return false;
     
+    // left & right 범위를 재귀마다 한계 좁힘
+    // 이렇게 하지않으면 서브트리의 경계가 부모트리 루트밸류 기준 제한 범위를 넘어버림
     return isValid(node.left, min, node.val) && 
            isValid(node.right, node.val, max);
 }
 
-// 기존 함수는 이렇게만 호출하면 됨
 var isValidBST = function(root) {
+    // 최초 재귀호출은 양쪽으로 제한이 없으므로 인피니티
     return isValid(root, -Infinity, Infinity);
 };
