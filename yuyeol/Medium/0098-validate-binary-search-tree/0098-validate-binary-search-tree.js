@@ -10,15 +10,32 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isValidBST = function(root) {
-    // 더이상 순회할 루트가 없으면 BST 조건 검증이 필요없으므로 통과시킴
-    if(!root) return true;
-    
-    const isRightVaild = isValidBST(root.right);
-    const isLeftValid = isValidBST(root.left);
 
-    if(root.left && root.val <= root.left.val) return false;
-    if(root.right && root.val >= root.right.val) return false;
+// 현재 코드가 놓치는 점: 루트 값 범위를 넘어서는 노드를 감지하지 못한다
+// 예: 5의 오른쪽 자식 3은 5보다 작을 수 없는데, 루트(5)와의 비교 없이 부모(6)만 보고 넘어간다.
+// var isValidBST = function(root) {
+//     // 더이상 순회할 루트가 없으면 BST 조건 검증이 필요없으므로 통과시킴
+//     if(!root) return true;
     
-    return isRightVaild && isLeftValid
+//     const isRightVaild = isValidBST(root.right);
+//     const isLeftValid = isValidBST(root.left);
+
+//     if(root.left && root.val <= root.left.val) return false;
+//     if(root.right && root.val >= root.right.val) return false;
+    
+//     return isRightVaild && isLeftValid
+// };
+
+function isValid(node, min, max) {
+    if(!node) return true;
+    
+    if(node.val <= min || node.val >= max) return false;
+    
+    return isValid(node.left, min, node.val) && 
+           isValid(node.right, node.val, max);
+}
+
+// 기존 함수는 이렇게만 호출하면 됨
+var isValidBST = function(root) {
+    return isValid(root, -Infinity, Infinity);
 };
