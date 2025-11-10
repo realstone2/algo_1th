@@ -29,7 +29,6 @@ Solution.prototype.reset = function() {
  * @return {number[]}
  */
 Solution.prototype.shuffle = function() {
-    this.currentNums = [...this.originalNums];
     for(let i = this.currentNums.length - 1; 0 < i; i--) {
         let randomIndex = Math.floor(Math.random() * (i + 1));
         const temp = this.currentNums[i];
