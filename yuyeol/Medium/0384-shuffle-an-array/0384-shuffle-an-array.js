@@ -13,6 +13,7 @@
  * @param {number[]} nums
  */
 var Solution = function(nums) {
+    // 파라미터의 배열 복제 해서 원본과 변경할 배열의 초기화
     this.originalNums = [...nums]; 
     this.currentNums = [...nums];
 };
@@ -21,6 +22,7 @@ var Solution = function(nums) {
  * @return {number[]}
  */
 Solution.prototype.reset = function() {
+    // 원본 배열을 복제(참조때문)해서 현재 배열로 교체해줌
     this.currentNums = [...this.originalNums];
     return this.currentNums; 
 };
@@ -28,9 +30,15 @@ Solution.prototype.reset = function() {
 /**
  * @return {number[]}
  */
+// 배열 셔플을 어떻게 돌려야하는지 도저히 감이 안와서 방식 찾아봄
+// 피셔-예이츠 셔플: 배열의 뒤에서부터 각 자리에 올 요소를 남은 것들 중 무작위로 뽑아 교환하는 방식으로
 Solution.prototype.shuffle = function() {
+    // 역순 순회함. 랜덤 돌리는 자리수가 하나씩 감소하는 것이 자연스럽기 때문
     for(let i = this.currentNums.length - 1; 0 < i; i--) {
+        // randomIndex === i일 수도 있음. 그 순회에서는 자리를 안바꾸는거.
         let randomIndex = Math.floor(Math.random() * (i + 1));
+        console.log(i, randomIndex)
+        // 랜덤인덱스와 현재 순회 인덱스 자리를 바꿔줌
         const temp = this.currentNums[i];
         this.currentNums[i] = this.currentNums[randomIndex];
         this.currentNums[randomIndex] = temp;
