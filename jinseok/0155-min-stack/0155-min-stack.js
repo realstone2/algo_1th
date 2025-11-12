@@ -9,6 +9,7 @@ var MinStack = function() {
  * @return {void}
  */
 MinStack.prototype.push = function(val) {
+    this.min = Math.min(this.min, val)
     this.stack.push(val)
 };
 
@@ -16,7 +17,18 @@ MinStack.prototype.push = function(val) {
  * @return {void}
  */
 MinStack.prototype.pop = function() {
-    this.stack.pop();
+    const popItem = this.stack.pop();
+
+    if(popItem === this.min){
+        const min = this.stack.reduce((min, cur, index)=> {
+            if(cur < min){
+                minIndex = index;
+                return cur;
+            }
+            return min;
+        }, Infinity)
+        this.min = min
+    }
     
 };
 
@@ -31,16 +43,7 @@ MinStack.prototype.top = function() {
  * @return {number}
  */
 MinStack.prototype.getMin = function() {
-    let minIndex = -1;
-    const min = this.stack.reduce((min, cur, index)=> {
-        if(cur < min){
-            minIndex = index;
-            return cur;
-        }
-        return min;
-    }, Infinity)
-
-    return min
+    return this.min
 };
 
 /** 
