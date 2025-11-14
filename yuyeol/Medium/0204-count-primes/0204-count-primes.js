@@ -34,6 +34,9 @@
 
 // 배수를 가진 값들은 모조리 소거하는 방식
 var countPrimes = function(n) {
+    if (n <= 2) {
+        return 0;
+    }
     const primeList = Array.from({ length: n }, (_, i) => i > 1);
     // 이전 방법과 약간 다른 이유로 제곱근까지 순회함
     // n이 100이라면 10까지만 순회하면 된다는 것인데, 예를들어 2 * 11은 i가 2인 순회에서 소거되기때문
