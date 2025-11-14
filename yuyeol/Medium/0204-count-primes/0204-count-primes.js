@@ -32,17 +32,27 @@
 //     return count;
 // };
 
+// 배수를 가진 값들은 모조리 소거하는 방식
 var countPrimes = function(n) {
     const primeList = Array.from({ length: n }, (_, i) => i > 1);
     // 이전 방법과 약간 다른 이유로 제곱근까지 순회함
-    for(i = 2; i*i <= n; i++) {
+    // n이 100이라면 10까지만 순회하면 된다는 것인데, 예를들어 2 * 11은 i가 2인 순회에서 소거되기때문
+    for(i = 2; i * i <= n; i++) {
         if(primeList[i]) {
-            // i 제곱부터 i배수씩 증가시켜서 소수 제거
+            // n까지의 i 배수들은 몽땅 제거
+            // 왜 i제곱부터 시작하냐? i보다 작은 배수들은 이전 순회에서 이미 소거되었기때문
+            // 3의 제곱보다 작은 3 * 2는 2 * 3 순회에서 이미 소거했음
+            // 3의 제곱보다 큰 3의 배수부터 소거를 진행해야 중복계산을 줄임
             for (let j = i * i; j < n; j += i) {
                 primeList[j] = false; 
             }
         }
     }
-    return primeList.filter((prime)=> prime).length;
+    return primeList.filter(prime => prime).length;
 };
-
+// n이 16일때 순회 과정
+// primeList = [false, false, true, true, ... true]
+// i = 2일 때: 2의 배수인 4, 6, 8, 10, 12, 14를 false로 만듭니다.
+// i = 3일 때: 3의 배수인 9, 12, 15를 false로 만듭니다.
+// i = 4일 때: primeList[4]가 이미 false이므로 아무것도 안 하고 넘어갑니다.
+// 남아있는 true에 해당하는 값(2, 3, 5, 7, 11, 13)의 개수인 6을 반환합니다.
