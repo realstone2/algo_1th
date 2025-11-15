@@ -17,5 +17,5 @@ var countPrimes = function(n) {
         }
     }
     
-    return isPrime.filter(item => item === true).length;
+    return isPrime.reduce((count, prime) => count + (prime ? 1 : 0), 0);
 };
