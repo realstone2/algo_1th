@@ -11,6 +11,7 @@ var countPrimes = function(n) {
     const limit = Math.sqrt(n);
 
     for (let i = 2; i < limit + 1; i++) {
+        if (!isPrime[i]) continue;
         for (let j = i * i; j < n; j += i) {
             isPrime[j] = false;
         }
