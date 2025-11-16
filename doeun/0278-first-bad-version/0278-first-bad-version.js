@@ -1,0 +1,38 @@
+/**
+ * Definition for isBadVersion()
+ * 
+ * @param {integer} version number
+ * @return {boolean} whether the version is bad
+ * isBadVersion = function(version) {
+ *     ...
+ * };
+ */
+
+/**
+ * @param {function} isBadVersion()
+ * @return {function}
+ */
+const solution = function (isBadVersion) {
+    /**
+     * @param {integer} n Total versions
+     * @return {integer} The first bad version
+     */
+    return function (n) {
+        let left = 1;
+        let right = n;
+
+        while (left < right) {
+            let mid = Math.floor((left + right) / 2);
+
+            if (isBadVersion(mid)) {
+                // mid가 불량 → 첫 불량은 left~mid 사이
+                right = mid;  // ← center-- 대신 범위를 반으로!
+            } else {
+                // mid가 정상 → 첫 불량은 mid+1~right 사이
+                left = mid + 1;
+            }
+        }
+
+        return left;
+    };
+};
